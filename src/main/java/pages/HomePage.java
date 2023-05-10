@@ -30,7 +30,6 @@ public class HomePage {
 
     @Step("Нажать на кнопку «Принять» (файлы Cookie) ")
     public HomePage acceptCookie() {
-        Selenide.switchTo().alert().dismiss();
         $(ACCEPT_COOKIE_BUTTON).click();
         return this;
     }
