@@ -44,8 +44,7 @@ public class HomePage {
     @Step("Выбрать язык сайта")
     public HomePage selectLanguage(String languageName) {
         $(CHANGE_LANGUAGE_BUTTON).click();
-        SelenideElement languageButton = (SelenideElement) $$(LANGUAGE_BUTTON).shouldBe(CollectionCondition.texts(languageName));
-        languageButton.click();
+        $$(LANGUAGE_BUTTON).findBy(Condition.text(languageName)).click();
         return this;
     }
 
