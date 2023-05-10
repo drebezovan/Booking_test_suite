@@ -33,7 +33,7 @@ public class HomePage {
     @Step("Нажать на кнопку «Принять» (файлы Cookie) ")
     public HomePage acceptCookie() {
         $(REGISTRATION_MODAL_WINDOW).click();
-        $(ACCEPT_COOKIE_BUTTON).click();
+//        $(ACCEPT_COOKIE_BUTTON).click();
         return this;
     }
 
