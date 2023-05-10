@@ -1,1 +1,0 @@
-[{"uid":"466425d34e9ddb05","name":"Проверка параметров достопримечательности","time":{"start":1683712756493,"stop":1683712774372,"duration":17879},"status":"failed","severity":"blocker"},{"uid":"3ab77ceab374d973","name":"Проверка параметров отеля","time":{"start":1683712732835,"stop":1683712756274,"duration":23439},"status":"failed","severity":"blocker"}]
