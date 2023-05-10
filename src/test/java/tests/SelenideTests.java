@@ -58,7 +58,8 @@ public class SelenideTests extends BaseTest{
         // количество звезд, среднюю оценку, количество отзывов и стоимость
 
         homePage.openHomePage()
-                .acceptCookie()
+                .closeRegistrationWindow()
+                .selectLanguage("Русский")
                 .searchCityAndData(inputData.getCity().get(randomNum), startData, endData);
 
         searchCity.checkCityHeader(inputData.getCity().get(randomNum))
@@ -94,7 +95,8 @@ public class SelenideTests extends BaseTest{
         //2.7 на открывшейся странице достопримечательности проверить название и цену
 
         homePage.openHomePage()
-                .acceptCookie()
+                .closeRegistrationWindow()
+                .selectLanguage("Русский")
                 .clickAttractionsButton();
 
         attractionsPage.searchCityAndData(inputData.getCity().get(randomNum), startData, endData);

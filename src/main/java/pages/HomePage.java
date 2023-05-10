@@ -1,18 +1,23 @@
 package pages;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import config.ProjectConfig;
 import io.qameta.allure.Step;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class HomePage {
     public static final ProjectConfig cfg = ConfigFactory.create(ProjectConfig.class);
     public static final By REGISTRATION_MODAL_WINDOW = By.cssSelector
             ("button.fc63351294.a822bdf511.e3c025e003.fa565176a8.f7db01295e.c334e6f658.ae1678b153");
+    public static final By CHANGE_LANGUAGE_BUTTON = By.cssSelector("button[data-testid='header-language-picker-trigger']");
+    public static final By LANGUAGE_BUTTON = By.cssSelector("span.cf67405157");
     public static final By ACCEPT_COOKIE_BUTTON = By.xpath("//button[@id='onetrust-accept-btn-handler']");
     public static final By SEARCH_FIELD = By.xpath("//input[@id=':Ra9:']");
     public static final By SUBMIT_BUTTON = By.xpath("//button[@type='submit']");
@@ -31,9 +36,16 @@ public class HomePage {
     }
 
     @Step("Нажать на кнопку «Принять» (файлы Cookie) ")
-    public HomePage acceptCookie() {
+    public HomePage closeRegistrationWindow() {
         $(REGISTRATION_MODAL_WINDOW).click();
 //        $(ACCEPT_COOKIE_BUTTON).click();
+        return this;
+    }
+    @Step("Выбрать язык сайта")
+    public HomePage selectLanguage(String languageName) {
+        $(CHANGE_LANGUAGE_BUTTON).click();
+        SelenideElement languageButton = (SelenideElement) $$(LANGUAGE_BUTTON).shouldBe(CollectionCondition.texts(languageName));
+        languageButton.click();
         return this;
     }
 
