@@ -30,12 +30,13 @@ public class HomePage {
 
     @Step("Нажать на кнопку «Принять» (файлы Cookie) ")
     public HomePage acceptCookie() {
+        Selenide.switchTo().alert().dismiss();
         $(ACCEPT_COOKIE_BUTTON).click();
         return this;
     }
 
     @Step("Ввести в поиске любой город(заграничный) с параметром city={0}, " +
-            "выбрать случайные даты с параметрами startData={0} и endData={0} " +
+            "выбрать случайные даты с параметрами startData={1} и endData={2} " +
             " и нажать на кнопку «Найти»")
     public HomePage searchCityAndData(String city, String startData, String endData) {
         $(SEARCH_FIELD).sendKeys(city);

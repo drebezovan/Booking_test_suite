@@ -36,7 +36,7 @@ public class SelenideTests extends BaseTest{
     int randomNum = getRandomIntegerBetweenRange(0, 10);
 
     @Test
-    @DisplayName("Проверка параметров достопримечательности ")
+    @DisplayName("Проверка параметров отеля ")
     @Description("Проверяем совпадение параметров " +
             "(название, количество звезд, среднюю оценку, количество отзывов и стоимость) " +
             "отеля на странице с картой и на странице отеля")
