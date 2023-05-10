@@ -35,7 +35,7 @@ public class HomePage {
         return this;
     }
 
-    @Step("Нажать на кнопку «Принять» (файлы Cookie) ")
+    @Step("Закрыть модальное окно")
     public HomePage closeRegistrationWindow() {
         $(REGISTRATION_MODAL_WINDOW).click();
 //        $(ACCEPT_COOKIE_BUTTON).click();
