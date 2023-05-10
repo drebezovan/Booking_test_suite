@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class HomePage {
     public static final ProjectConfig cfg = ConfigFactory.create(ProjectConfig.class);
+    public static final By REGISTRATION_MODAL_WINDOW = By.cssSelector("button[aria-label='Скрыть меню входа в аккаунт.']");
     public static final By ACCEPT_COOKIE_BUTTON = By.xpath("//button[@id='onetrust-accept-btn-handler']");
     public static final By SEARCH_FIELD = By.xpath("//input[@id=':Ra9:']");
     public static final By SUBMIT_BUTTON = By.xpath("//button[@type='submit']");
@@ -30,6 +31,7 @@ public class HomePage {
 
     @Step("Нажать на кнопку «Принять» (файлы Cookie) ")
     public HomePage acceptCookie() {
+        $(REGISTRATION_MODAL_WINDOW).click();
         $(ACCEPT_COOKIE_BUTTON).click();
         return this;
     }
